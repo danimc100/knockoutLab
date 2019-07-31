@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<header>
+    <script src="Scripts/Lib/knockout-3.5.0.js"></script>
+    <script src="Scripts/Lib/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</header>
+
+<body>
+    <h2>Knockout Lab</h2>
+
+    <p>
+        Nombre: <span data-bind="text: nombre"></span>, Teléfono: <span data-bind="text: telefono"></span>
+        <br>
+        Combinado: <span data-bind="text: combinado"></span>
+        <br>
+        <span data-bind="visible: nombre()=='Daniel'">Saludos al autor</span>
+    </p>
+
+    <p>
+        Cambiar nombre: <input data-bind="value: nombre"> - <button type="button" id="cambiaNombreBtn">Cambiar</button>
+        <br>
+        Cambiar teléfono: <input type="text" data-bind="value: telefono">
+    </p>
+
+    <div class="contenedor">
+        <h3>Iteración de un array</h3>
+
+        <ul data-bind="foreach: listaSencilla">
+            <li data-bind="text: $data"></li>
+        </ul>
+
+    </div>
+
+    <div class="contenedor">
+        <h3>Iteración de un array de objetos</h3>
+        <div class="cajaListas">
+
+            <div>
+                <ul data-bind="foreach: lista">
+                    <li>
+                    <span data-bind="text: nombre"></span> - <span data-bind="text: dir"></span> -  <span data-bind="text: telf"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <ul data-bind="foreach: lista">
+                    <li>
+                        <input data-bind="value: nombre"> - <span data-bind="text: dir"></span> -  <span data-bind="text: telf"></span>
+                        - <a href="#" data-bind="click: $root.eliminar">Eliminar</a>
+                    </li>
+                </ul>
+            </div>
+          
+        </div>
+        <button type="button" data-bind="click: addALista, enable: lista().length < 5">Añadir</button> - <span data-bind="text: contar"></span>
+    </div>
+
+    <div class="contenedor">
+        <button type="button" data-bind="click: generaDatos">Genera</button> <button type="Elimina" data-bind="click: eliminaDatos">Elimina</button>
+        
+        <div data-bind="with: hayDatos">
+            <span>Lista de datos</span>
+            <ul data-bind="foreach: hayDatos">
+                <li data-bind="text: $data"></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="Scripts/module.js"></script>
+</body>
+
+</html>

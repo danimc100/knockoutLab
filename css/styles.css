@@ -1,0 +1,15 @@
+.contenedor {
+    border: solid 2px cyan;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cajaListas {
+    display: flex;
+    flex-direction: row;
+}
+
+.cajaListas div {
+    width: 500px;
+}
