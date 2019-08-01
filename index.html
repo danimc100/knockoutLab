@@ -61,12 +61,17 @@
     <div class="contenedor">
         <button type="button" data-bind="click: generaDatos">Genera</button> <button type="Elimina" data-bind="click: eliminaDatos">Elimina</button>
         
-        <div data-bind="with: hayDatos">
+        <div > <!-- data-bind="with: hayDatos" -->
             <span>Lista de datos</span>
             <ul data-bind="foreach: hayDatos">
                 <li data-bind="text: $data"></li>
             </ul>
         </div>
+    </div>
+
+    <div class="contenedor">
+        <select data-bind="options: [1,2,3,4,5], value: comboValue"></select>
+        Ha seleccionado: <span data-bind="text: comboValue"></span>
     </div>
 
     <script src="Scripts/module.js"></script>

@@ -41,7 +41,7 @@
 
         // ---------------------------------------------------------------
 
-        this.hayDatos = ko.observableArray(undefined);
+        this.hayDatos = ko.observableArray([]);
 
         this.generaDatos = function() {
             self.hayDatos(["Portátil", "Consola", "PC sobremesa"]);
@@ -50,6 +50,9 @@
         this.eliminaDatos= function() {
             self.hayDatos(undefined);
         }
+
+        // ----------------------------------------------------------------
+        this.comboValue = ko.observable(1);
 
     }
 
