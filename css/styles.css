@@ -13,3 +13,11 @@
 .cajaListas div {
     width: 500px;
 }
+
+.fondo {
+    background-color: red;
+}
+
+.colorTexto {
+    color: yellow;
+}

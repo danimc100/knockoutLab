@@ -19,9 +19,9 @@
     </p>
 
     <p>
-        Cambiar nombre: <input data-bind="value: nombre"> - <button type="button" id="cambiaNombreBtn">Cambiar</button>
+        Cambiar nombre: <input data-bind="textInput: nombre"> - <button type="button" id="cambiaNombreBtn">Cambiar</button>
         <br>
-        Cambiar teléfono: <input type="text" data-bind="value: telefono">
+        Cambiar teléfono: <input type="text" data-bind="textInput: telefono">
     </p>
 
     <div class="contenedor">
@@ -72,6 +72,30 @@
     <div class="contenedor">
         <select data-bind="options: [1,2,3,4,5], value: comboValue"></select>
         Ha seleccionado: <span data-bind="text: comboValue"></span>
+    </div>
+
+    <div class="contenedor">
+        <span data-bind="fadeVisible: 5 > 4">Binding personalizado</span>
+    </div>
+
+    <div class="contenedor" data-bind="class: unaClase, css: { colorTexto: unValor() > 5  }">
+        <button type="button" data-bind="click: activaClase">Activa clase</button>
+        <button type="button" data-bind="click: desactivaClase">Desactiva clase</button>
+        Lorem ipsum <span data-bind="text: unValor"></span>
+    </div>
+
+    <div class="contenedor">
+        <input type="checkbox" data-bind="checked: opcion"> Aceptar condiciones.
+        <br>
+        <span data-bind="if: opcion">Puede continuar</span>
+        <span data-bind="ifnot: opcion">Marque la opción para continuar</span>
+    </div>
+
+    <div class="contenedor">
+        <h3>Componentes</h3>
+
+        <div data-bind="component: 'loginComponent'"></div>
+        <div data-bind="component: 'loginComponent'"></div>
     </div>
 
     <script src="Scripts/module.js"></script>

@@ -54,7 +54,56 @@
         // ----------------------------------------------------------------
         this.comboValue = ko.observable(1);
 
+        // ----------------------------------------------------------------
+        this.unaClase = ko.observable("fondo");
+        this.unValor = ko.observable(0);
+        
+        this.activaClase = function() {
+            self.unaClase("fondo");
+            self.unValor( self.unValor() + 1 );
+        }
+
+        this.desactivaClase = function() {
+            self.unaClase("");
+            self.unValor( self.unValor() - 1 );
+        }
+
+        // ----------------------------------------------------------------
+        this.opcion = ko.observable(false);
     }
+    
+    // Bindings personalizados
+    // -----------------------
+    ko.bindingHandlers.fadeVisible = {
+        init: function(element, valueAccessor) {
+            // Start visible/invisible according to initial value
+            console.log("init element: ", element);
+            console.log("init valueAccessor: ", valueAccessor);
+
+            var shouldDisplay = valueAccessor();
+            $(element).toggle(shouldDisplay);
+        },
+        update: function(element, valueAccessor) {
+            // On update, fade in/out
+            console.log("update element: ", element);
+            console.log("update valueAccessor: ", valueAccessor);
+            var shouldDisplay = valueAccessor();
+            shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
+        }
+    };
+
+    // Componentes
+    // -----------
+
+    ko.components.register("loginComponent", {
+        viewModel: function() {
+            this.login = ko.observable("");
+            this.password = ko.observable("");
+        },
+        template: '<div>' +
+                  ' Login: <input type="text" data-bind="text: login"> <br>' +
+                  ' Password: <input type="password" data-bind="text: password">' +
+                  '</div>'});
 
     var miModelView = new ModelView();
 
